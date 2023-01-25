@@ -26,4 +26,4 @@ Route::resource('formaturas', FormaturaController::class)->middleware('auth');
 Route::resource('listas', ListaController::class)->middleware('auth');
 Route::resource('titulos', TituloController::class)->middleware('auth');
 
-a
+aaaddd
