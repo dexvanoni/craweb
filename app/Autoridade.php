@@ -10,7 +10,7 @@ class Autoridade extends Model
     public $timestamps = false;
     protected $fillable = [
 
-        'aut_abrev', 'aut_extenso'
+        'posto', 'sequencia_interna'
         
     ];
 

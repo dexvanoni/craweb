@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Auth;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Response;
+use App\Lista;
 
 class ListaController extends Controller
 {
@@ -16,6 +22,14 @@ class ListaController extends Controller
         //
     }
 
+
+    public function convidados($formatura)
+    {
+        $form = DB::table('formaturas')->where('id', $formatura)->first();
+
+        return view('listas.create', compact('form'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -23,7 +37,7 @@ class ListaController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

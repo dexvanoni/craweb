@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Auth;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Response;
+use App\Autoridade;
 
 class AutoridadeController extends Controller
 {
@@ -13,7 +19,8 @@ class AutoridadeController extends Controller
      */
     public function index()
     {
-        //
+        $precedencias = DB::table('autoridades')->orderBy('id', 'ASC')->get();
+        return view('precedencia.index', compact('precedencias'));
     }
 
     /**

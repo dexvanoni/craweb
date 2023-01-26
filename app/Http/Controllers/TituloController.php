@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Auth;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Response;
+use App\Titulo;
 
 class TituloController extends Controller
 {
@@ -13,7 +19,8 @@ class TituloController extends Controller
      */
     public function index()
     {
-        //
+        $titulos = DB::table('titulos')->orderBy('id', 'ASC')->get();
+        return view('titulos.index', compact('titulos'));
     }
 
     /**

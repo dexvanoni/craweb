@@ -185,9 +185,9 @@
             <div class="sidebar-submenu">
               <ul>
                 @if(Auth::user()->email == 'comrecep.comando@gmail.com' || Auth::user()->email == 'comrecep.chefe@gmail.com')
-                <li>
+                <!--<li>
                   <a href="{{route('titulos.create')}}">Gerenciar</a>
-                </li>
+                </li>-->
                 @endif
                 <li>
                   <a href="{{route('titulos.index')}}">Listar</a>
@@ -205,9 +205,9 @@
             <div class="sidebar-submenu">
               <ul>
                 @if(Auth::user()->email == 'comrecep.comando@gmail.com' || Auth::user()->email == 'comrecep.chefe@gmail.com' || Auth::user()->email == 'comrecep.precedencia@gmail.com' )
-                <li>
+                <!--<li>
                   <a href="{{route('autoridades.create')}}">Gerenciar</a>
-                </li>
+                </li>-->
                 @endif
                 <li>
                   <a href="{{route('autoridades.index')}}">Listar</a>
@@ -255,7 +255,12 @@
 <script type="text/javascript">
   $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
-    $('#listas').DataTable();
+    $('#autoridades').DataTable({
+      order: [[1, 'asc']],
+    });
+    $('#formaturas').DataTable({
+      order: [[6, 'asc']],
+    });
 });
 </script>
 

@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Auth;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Response;
+use App\Formatura;
 
 class FormaturaController extends Controller
 {
@@ -13,7 +19,8 @@ class FormaturaController extends Controller
      */
     public function index()
     {
-        //
+        $formaturas = DB::table('formaturas')->orderBy('id', 'ASC')->get();
+        return view('formaturas.index', compact('formaturas'));
     }
 
     /**
@@ -23,7 +30,7 @@ class FormaturaController extends Controller
      */
     public function create()
     {
-        //
+        return view('formaturas.create');
     }
 
     /**
@@ -34,7 +41,10 @@ class FormaturaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Formatura::create($request->all());
+        return redirect()
+                    ->route('formaturas.index')
+                    ->with('success', 'Formatura cadastrada com sucesso!');
     }
 
     /**
